@@ -147,7 +147,7 @@
                                         </label>
                                         <input type="number" name="usace_target_power" id="usace_target_power" required>
 
-                                        <input type="submit" id="prepareEmailButton" value="--" disabled>
+                                        <input type="submit" id="prepareEmailButton" value="Save Your Data First" disabled>
                                     </form>
                                 </div>
                             </div>
@@ -234,7 +234,6 @@
         // Redirect to login page
         window.location.href = `https://wm.mvs.ds.usace.army.mil:8243/CWMSLogin/login?OriginalLocation=${encodeURIComponent(window.location.href)}`;
     }
-
 
     // DOM elements
     const statusBtn = document.querySelector(".status");
@@ -455,7 +454,6 @@
         }, 10000); // Time in milliseconds
     });
 
-
     var office = "MVS";
 
     // Get current date and time
@@ -500,7 +498,6 @@
         return null;
     }
 
-
     // Function to convert timestamp to specified format
     function formatNWSDate(timestamp) {
         const date = new Date(timestamp);
@@ -511,7 +508,6 @@
         const min = String(date.getMinutes()).padStart(2, '0'); // Minutes
         return `${mm}-${dd}-${yyyy} ${hh}:${min}`;
     }
-
 
     // Function to find the c_count for each interval id
     function calculateCCount(tsid) {
@@ -559,14 +555,12 @@
         return c_count;
     }
 
-
     // Function to convert cda date time to mm-dd-yyyy 24hh:mi
     function formatTimestampToString(timestampLast) {
         const date = new Date(timestampLast);
         const formattedDate = `${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}-${date.getFullYear()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
         return formattedDate;
     }
-
 
     // Function to get current data time
     function subtractHoursFromDate(date, hoursToSubtract) {
@@ -582,7 +576,6 @@
     function addDaysToDate(date, days) {
         return new Date(date.getTime() + (days * 24 * 60 * 60 * 1000));
     }
-
 
     function fetchSwpaScheduledGenerationInput(currentDateTimeMinus2Hours, currentDateTime, currentDateTimeMinus30Hours) {
         // Fetch the time series data from the API using the determined query string
@@ -739,7 +732,6 @@
     fetchSwpaScheduledGenerationInput(currentDateTimeMinus2Hours, currentDateTime, currentDateTimeMinus30Hours);
     fetchSwpaScheduledGenerationPowerInput(currentDateTimeMinus2Hours, currentDateTime, currentDateTimeMinus30Hours);
 
-
     function fetchUsaceMaximumInput(currentDateTimeMinus2Hours, currentDateTime, currentDateTimeMinus30Hours) {
         // Fetch the time series data from the API using the determined query string
         let urlStage = null;
@@ -895,7 +887,6 @@
     fetchUsaceMaximumInput(currentDateTimeMinus2Hours, currentDateTime, currentDateTimeMinus30Hours);
     fetchUsaceMaximumPowerInput(currentDateTimeMinus2Hours, currentDateTime, currentDateTimeMinus30Hours);
 
-
     function fetchUsaceMinimumInput(currentDateTimeMinus2Hours, currentDateTime, currentDateTimeMinus30Hours) {
         // Fetch the time series data from the API using the determined query string
         let urlStage = null;
@@ -1012,7 +1003,6 @@
 
     fetchUsaceMinimumInput(currentDateTimeMinus2Hours, currentDateTime, currentDateTimeMinus30Hours);
     fetchUsaceMinimumPowerInput(currentDateTimeMinus2Hours, currentDateTime, currentDateTimeMinus30Hours);
-
 
     function fetchUsaceTargetInput(currentDateTimeMinus2Hours, currentDateTime, currentDateTimeMinus30Hours) {
         // Fetch the time series data from the API using the determined query string
@@ -1141,10 +1131,11 @@
         const adjustValue = (value) => (value === "0") ? "na" : value;
 
         // Gather and adjust form data
-        const swpaScheduledGeneration = adjustValue(document.getElementById('swpa_scheduled_generation').value);
-        const swpaScheduledGenerationPower = adjustValue(document.getElementById('swpa_scheduled_generation_power').value);
-        const usaceMaximum = adjustValue(document.getElementById('usace_maximum').value);
-        const usaceMaximumPower = adjustValue(document.getElementById('usace_maximum_power').value);
+        const swpaScheduledGeneration = (document.getElementById('swpa_scheduled_generation').value);
+        const swpaScheduledGenerationPower = (document.getElementById('swpa_scheduled_generation_power').value);
+        const usaceMaximum = (document.getElementById('usace_maximum').value);
+        const usaceMaximumPower = (document.getElementById('usace_maximum_power').value);
+
         const usaceMinimum = adjustValue(document.getElementById('usace_minimum').value);
         const usaceMinimumPower = adjustValue(document.getElementById('usace_minimum_power').value);
         const usaceTarget = adjustValue(document.getElementById('usace_target').value);
@@ -1174,7 +1165,6 @@
         // Open the mailto link in the default email client
         window.location.href = mailtoLink;
     }
-
 </script>
 
 </html>
