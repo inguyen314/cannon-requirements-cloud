@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Cannon Requirements Cloud</title>
     <meta name="Description" content="U.S. Army Corps of Engineers St. Louis District Home Page" />
     <link rel="stylesheet" href="css/body.css" />
     <link rel="stylesheet" href="css/breadcrumbs.css" />
@@ -83,7 +83,7 @@
                     <div id="topPane" class="col-md backend-cp-collapsible">
                         <div class="box-usace">
                             <h2 class="box-header-striped">
-                                <span class="titleLabel title">Title</span>
+                                <span class="titleLabel title">Cannon Requirements Cloud</span>
                                 <span class="rss"></span>
                             </h2>
                             <div class="box-content" style="background-color:white;margin:auto">
@@ -96,14 +96,14 @@
                                             <a href="https://wm.mvs.ds.usace.army.mil/district_templates/chart/index.html?office=MVS&cwms_ts_id=Mark Twain Lk-Salt.Flow.Ave.~1Day.1Day.swpa-scheduled-generation&lookforward=0&lookback=96"
                                                 target="_blank">SWPA’s Scheduled Generation (dsf)</a>:
                                         </label>
-                                        <input type="text" name="swpa_scheduled_generation"
+                                        <input type="number" name="swpa_scheduled_generation"
                                             id="swpa_scheduled_generation" required>
 
                                         <label for="swpa_scheduled_generation_power">
                                             <a href="https://wm.mvs.ds.usace.army.mil/district_templates/chart/index.html?office=MVS&cwms_ts_id=Mark Twain Lk-Salt.Power.Ave.~1Day.1Day.swpa-scheduled-generation&lookforward=0&lookback=96"
                                                 target="_blank">SWPA’s Scheduled Generation (MW)</a>:
                                         </label>
-                                        <input type="text" name="swpa_scheduled_generation_power"
+                                        <input type="number" name="swpa_scheduled_generation_power"
                                             id="swpa_scheduled_generation_power" required>
 
                                         <!-- USACE Maximum -->
@@ -111,41 +111,43 @@
                                             <a href="https://wm.mvs.ds.usace.army.mil/district_templates/chart/index.html?office=MVS&cwms_ts_id=Mark Twain Lk-Salt.Flow.Ave.~1Day.1Day.usace-maximum&lookforward=0&lookback=96"
                                                 target="_blank">USACE Maximum (dsf)</a>:
                                         </label>
-                                        <input type="text" name="usace_maximum" id="usace_maximum" required>
+                                        <input type="number" name="usace_maximum" id="usace_maximum" required>
 
                                         <label for="usace_maximum_power">
                                             <a href="https://wm.mvs.ds.usace.army.mil/district_templates/chart/index.html?office=MVS&cwms_ts_id=Mark Twain Lk-Salt.Power.Ave.~1Day.1Day.usace-maximum&lookforward=0&lookback=96"
                                                 target="_blank">USACE Maximum (MW)</a>:
                                         </label>
-                                        <input type="text" name="usace_maximum_power" id="usace_maximum_power" required>
+                                        <input type="number" name="usace_maximum_power" id="usace_maximum_power"
+                                            required>
 
                                         <!-- USACE Minimum -->
                                         <label for="usace_minimum">
                                             <a href="https://wm.mvs.ds.usace.army.mil/district_templates/chart/index.html?office=MVS&cwms_ts_id=Mark Twain Lk-Salt.Flow.Ave.~1Day.1Day.usace-minimum&lookforward=0&lookback=96"
                                                 target="_blank">USACE Minimum (dsf)</a>:
                                         </label>
-                                        <input type="text" name="usace_minimum" id="usace_minimum" required>
+                                        <input type="number" name="usace_minimum" id="usace_minimum" required>
 
                                         <label for="usace_minimum_power">
                                             <a href="https://wm.mvs.ds.usace.army.mil/district_templates/chart/index.html?office=MVS&cwms_ts_id=Mark Twain Lk-Salt.Power.Ave.~1Day.1Day.usace-minimum&lookforward=0&lookback=96"
                                                 target="_blank">USACE Minimum (MW)</a>:
                                         </label>
-                                        <input type="text" name="usace_minimum_power" id="usace_minimum_power" required>
+                                        <input type="number" name="usace_minimum_power" id="usace_minimum_power"
+                                            required>
 
                                         <!-- USACE Target -->
                                         <label for="usace_target">
                                             <a href="https://wm.mvs.ds.usace.army.mil/district_templates/chart/index.html?office=MVS&cwms_ts_id=Mark Twain Lk-Salt.Flow.Ave.~1Day.1Day.usace-target&lookforward=0&lookback=96"
                                                 target="_blank">USACE Target (dsf)</a>:
                                         </label>
-                                        <input type="text" name="usace_target" id="usace_target" required>
+                                        <input type="number" name="usace_target" id="usace_target" required>
 
                                         <label for="usace_target_power">
                                             <a href="https://wm.mvs.ds.usace.army.mil/district_templates/chart/index.html?office=MVS&cwms_ts_id=Mark Twain Lk-Salt.Power.Ave.~1Day.1Day.usace-target&lookforward=0&lookback=96"
                                                 target="_blank">USACE Target (MW)</a>:
                                         </label>
-                                        <input type="text" name="usace_target_power" id="usace_target_power" required>
+                                        <input type="number" name="usace_target_power" id="usace_target_power" required>
 
-                                        <input type="submit" value="Prepare Email">
+                                        <input type="submit" id="prepareEmailButton" value="--" disabled>
                                     </form>
                                 </div>
                             </div>
@@ -237,6 +239,7 @@
     // DOM elements
     const statusBtn = document.querySelector(".status");
     const cdaBtn = document.getElementById("cda-btn");
+    const prepareEmailButton = document.getElementById('prepareEmailButton');
 
     // Controller for login state
     async function loginStateController() {
@@ -430,6 +433,13 @@
                     }
 
                     statusBtn.innerText = "Write successful!";
+
+                    // Show success alert
+                    alert("Write successful!");
+
+                    // Enable the submit button
+                    prepareEmailButton.disabled = false;
+                    prepareEmailButton.value = "Email Prepared"; // Change text before enabling
                 } catch (error) {
                     statusBtn.innerText = "Failed to write data!";
                 }
