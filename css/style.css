@@ -1,3 +1,48 @@
 /*** ===================================================================================== ***/
 /*** YOUR REPORT STYLE GOES HERE ***/
 /*** ===================================================================================== ***/
+#myForm {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Four equal columns */
+    gap: 20px;
+    /* Space between columns */
+    max-width: 1200px;
+    /* Adjust as needed */
+    margin: auto;
+    /* Center the form */
+}
+
+label {
+    margin-bottom: 5px;
+    /* Space between label and input */
+    display: block;
+    /* Ensure labels are block-level */
+}
+
+input {
+    padding: 8px;
+    /* Padding for inputs */
+    border: 1px solid #ccc;
+    /* Border for inputs */
+    border-radius: 4px;
+    /* Rounded corners */
+    width: 100%;
+    /* Full width of the column */
+}
+
+input[type="submit"] {
+    grid-column: span 4;
+    /* Make the submit button span all columns */
+    background-color: darkblue;
+    /* Background color */
+    color: white;
+    /* Text color */
+    cursor: pointer;
+    /* Pointer cursor */
+}
+
+input[type="submit"]:hover {
+    background-color: navy;
+    /* Darker on hover */
+}
