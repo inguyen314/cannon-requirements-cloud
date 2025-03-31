@@ -182,7 +182,7 @@
         if (await isLoggedIn()) return true;
 
         // Redirect to login page
-        window.location.href = `https://wm.mvs.ds.usace.army.mil:8243/CWMSLogin/login?OriginalLocation=${encodeURIComponent(window.location.href)}`;
+        window.location.href = `https://wm.mvs.ds.usace.army.mil/CWMSLogin/login?OriginalLocation=${encodeURIComponent(window.location.href)}`;
     }
 
     // DOM elements
@@ -530,7 +530,7 @@
     function fetchSwpaScheduledGenerationInput(currentDateTimeMinus2Hours, currentDateTime, currentDateTimeMinus30Hours) {
         // Fetch the time series data from the API using the determined query string
         let urlStage = null;
-        urlStage = `https://coe-${office}uwa04${office.toLocaleLowerCase()}.${office.toLocaleLowerCase()}.usace.army.mil:8243/${office.toLocaleLowerCase()}-data/timeseries?name=Mark Twain Lk-Salt.Flow.Ave.~1Day.1Day.swpa-scheduled-generation&begin=${currentDateTimeMinus30Hours.toISOString()}&end=${currentDateTime.toISOString()}&office=${office}`;
+        urlStage = `https://coe-${office}uwa04${office.toLocaleLowerCase()}.${office.toLocaleLowerCase()}.usace.army.mil/${office.toLocaleLowerCase()}-data/timeseries?name=Mark Twain Lk-Salt.Flow.Ave.~1Day.1Day.swpa-scheduled-generation&begin=${currentDateTimeMinus30Hours.toISOString()}&end=${currentDateTime.toISOString()}&office=${office}`;
 
         // console.log("urlStage = ", urlStage);
         fetch(urlStage, {
@@ -606,7 +606,7 @@
     function fetchSwpaScheduledGenerationPowerInput(currentDateTimeMinus2Hours, currentDateTime, currentDateTimeMinus30Hours) {
         // Fetch the time series data from the API using the determined query string
         let urlStage = null;
-        urlStage = `https://coe-${office}uwa04${office.toLocaleLowerCase()}.${office.toLocaleLowerCase()}.usace.army.mil:8243/${office.toLocaleLowerCase()}-data/timeseries?name=Mark Twain Lk-Salt.Power.Ave.~1Day.1Day.swpa-scheduled-generation&begin=${currentDateTimeMinus30Hours.toISOString()}&end=${currentDateTime.toISOString()}&office=${office}`;
+        urlStage = `https://coe-${office}uwa04${office.toLocaleLowerCase()}.${office.toLocaleLowerCase()}.usace.army.mil/${office.toLocaleLowerCase()}-data/timeseries?name=Mark Twain Lk-Salt.Power.Ave.~1Day.1Day.swpa-scheduled-generation&begin=${currentDateTimeMinus30Hours.toISOString()}&end=${currentDateTime.toISOString()}&office=${office}`;
 
         // console.log("urlStage = ", urlStage);
         fetch(urlStage, {
@@ -685,7 +685,7 @@
     function fetchUsaceMaximumInput(currentDateTimeMinus2Hours, currentDateTime, currentDateTimeMinus30Hours) {
         // Fetch the time series data from the API using the determined query string
         let urlStage = null;
-        urlStage = `https://coe-${office}uwa04${office.toLocaleLowerCase()}.${office.toLocaleLowerCase()}.usace.army.mil:8243/${office.toLocaleLowerCase()}-data/timeseries?name=Mark Twain Lk-Salt.Flow.Ave.~1Day.1Day.usace-maximum&begin=${currentDateTimeMinus30Hours.toISOString()}&end=${currentDateTime.toISOString()}&office=${office}`;
+        urlStage = `https://coe-${office}uwa04${office.toLocaleLowerCase()}.${office.toLocaleLowerCase()}.usace.army.mil/${office.toLocaleLowerCase()}-data/timeseries?name=Mark Twain Lk-Salt.Flow.Ave.~1Day.1Day.usace-maximum&begin=${currentDateTimeMinus30Hours.toISOString()}&end=${currentDateTime.toISOString()}&office=${office}`;
 
         // console.log("urlStage = ", urlStage);
         fetch(urlStage, {
@@ -761,7 +761,7 @@
     function fetchUsaceMaximumPowerInput(currentDateTimeMinus2Hours, currentDateTime, currentDateTimeMinus30Hours) {
         // Fetch the time series data from the API using the determined query string
         let urlStage = null;
-        urlStage = `https://coe-${office}uwa04${office.toLocaleLowerCase()}.${office.toLocaleLowerCase()}.usace.army.mil:8243/${office.toLocaleLowerCase()}-data/timeseries?name=Mark Twain Lk-Salt.Power.Ave.~1Day.1Day.usace-maximum&begin=${currentDateTimeMinus30Hours.toISOString()}&end=${currentDateTime.toISOString()}&office=${office}`;
+        urlStage = `https://coe-${office}uwa04${office.toLocaleLowerCase()}.${office.toLocaleLowerCase()}.usace.army.mil/${office.toLocaleLowerCase()}-data/timeseries?name=Mark Twain Lk-Salt.Power.Ave.~1Day.1Day.usace-maximum&begin=${currentDateTimeMinus30Hours.toISOString()}&end=${currentDateTime.toISOString()}&office=${office}`;
 
         // console.log("urlStage = ", urlStage);
         fetch(urlStage, {
@@ -840,7 +840,7 @@
     function fetchUsaceMinimumInput(currentDateTimeMinus2Hours, currentDateTime, currentDateTimeMinus30Hours) {
         // Fetch the time series data from the API using the determined query string
         let urlStage = null;
-        urlStage = `https://coe-${office}uwa04${office.toLowerCase()}.${office.toLowerCase()}.usace.army.mil:8243/${office.toLowerCase()}-data/timeseries?name=Mark Twain Lk-Salt.Flow.Ave.~1Day.1Day.usace-minimum&begin=${currentDateTimeMinus30Hours.toISOString()}&end=${currentDateTime.toISOString()}&office=${office}`;
+        urlStage = `https://wm.${office.toLocaleLowerCase()}.ds.usace.army.mil/${office.toLowerCase()}-data/timeseries?name=Mark Twain Lk-Salt.Flow.Ave.~1Day.1Day.usace-minimum&begin=${currentDateTimeMinus30Hours.toISOString()}&end=${currentDateTime.toISOString()}&office=${office}`;
 
         fetch(urlStage, {
             method: 'GET',
@@ -897,7 +897,7 @@
     function fetchUsaceMinimumPowerInput(currentDateTimeMinus2Hours, currentDateTime, currentDateTimeMinus30Hours) {
         // Fetch the time series data from the API using the determined query string
         let urlStage = null;
-        urlStage = `https://coe-${office}uwa04${office.toLowerCase()}.${office.toLowerCase()}.usace.army.mil:8243/${office.toLowerCase()}-data/timeseries?name=Mark Twain Lk-Salt.Power.Ave.~1Day.1Day.usace-minimum&begin=${currentDateTimeMinus30Hours.toISOString()}&end=${currentDateTime.toISOString()}&office=${office}`;
+        urlStage = `https://wm.${office.toLocaleLowerCase()}.ds.usace.army.mil/${office.toLowerCase()}-data/timeseries?name=Mark Twain Lk-Salt.Power.Ave.~1Day.1Day.usace-minimum&begin=${currentDateTimeMinus30Hours.toISOString()}&end=${currentDateTime.toISOString()}&office=${office}`;
 
         fetch(urlStage, {
             method: 'GET',
@@ -957,7 +957,7 @@
     function fetchUsaceTargetInput(currentDateTimeMinus2Hours, currentDateTime, currentDateTimeMinus30Hours) {
         // Fetch the time series data from the API using the determined query string
         let urlStage = null;
-        urlStage = `https://coe-${office}uwa04${office.toLowerCase()}.${office.toLowerCase()}.usace.army.mil:8243/${office.toLowerCase()}-data/timeseries?name=Mark Twain Lk-Salt.Flow.Ave.~1Day.1Day.usace-target&begin=${currentDateTimeMinus30Hours.toISOString()}&end=${currentDateTime.toISOString()}&office=${office}`;
+        urlStage = `https://wm.${office.toLocaleLowerCase()}.ds.usace.army.mil/${office.toLowerCase()}-data/timeseries?name=Mark Twain Lk-Salt.Flow.Ave.~1Day.1Day.usace-target&begin=${currentDateTimeMinus30Hours.toISOString()}&end=${currentDateTime.toISOString()}&office=${office}`;
 
         fetch(urlStage, {
             method: 'GET',
@@ -1014,7 +1014,7 @@
     function fetchUsaceTargetPowerInput(currentDateTimeMinus2Hours, currentDateTime, currentDateTimeMinus30Hours) {
         // Fetch the time series data from the API using the determined query string
         let urlStage = null;
-        urlStage = `https://coe-${office}uwa04${office.toLowerCase()}.${office.toLowerCase()}.usace.army.mil:8243/${office.toLowerCase()}-data/timeseries?name=Mark Twain Lk-Salt.Power.Ave.~1Day.1Day.usace-target&begin=${currentDateTimeMinus30Hours.toISOString()}&end=${currentDateTime.toISOString()}&office=${office}`;
+        urlStage = `https://wm.${office.toLocaleLowerCase()}.ds.usace.army.mil/${office.toLowerCase()}-data/timeseries?name=Mark Twain Lk-Salt.Power.Ave.~1Day.1Day.usace-target&begin=${currentDateTimeMinus30Hours.toISOString()}&end=${currentDateTime.toISOString()}&office=${office}`;
 
         fetch(urlStage, {
             method: 'GET',
