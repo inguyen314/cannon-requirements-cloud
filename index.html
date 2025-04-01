@@ -182,7 +182,7 @@
         if (await isLoggedIn()) return true;
 
         // Redirect to login page
-        window.location.href = `https://wm.mvs.ds.usace.army.mil/CWMSLogin/login?OriginalLocation=${encodeURIComponent(window.location.href)}`;
+        window.location.href = `https://wm.mvs.ds.usace.army.mil:8243/CWMSLogin/login?OriginalLocation=${encodeURIComponent(window.location.href)}`;
     }
 
     // DOM elements
